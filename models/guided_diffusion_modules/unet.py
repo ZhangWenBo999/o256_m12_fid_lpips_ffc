@@ -395,7 +395,6 @@ class UNet(nn.Module):
 
         ch = input_ch = int(channel_mults[0] * inner_channel)
 
-        self.input_blocks0 = FFC_BN_ACT(in_channels=in_channel*2, out_channels=in_channel*2, kernel_size=3, padding=1, ratio_gin=0.5, ratio_gout=0.5) # in_channels * ratio_gin = input_channel
         self.input_blocks1 = EmbedSequential(nn.Conv2d(in_channel, ch, 3, padding=1))
         self.input_blocks2 = FFC_BN_ACT(in_channels=ch*2, out_channels=ch*2, kernel_size=3, padding=1, ratio_gin=0.5, ratio_gout=0.5) # in_channels * ratio_gin = input_channel
         
